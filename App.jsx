@@ -1,13 +1,36 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AadhaarVerification from './src/screens/AadhaarVerification';
 
-const App = () => {
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View>
-      <Text>ComponentName</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="AadhaarVerification"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#2196F3',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      >
+        <Stack.Screen
+          name="AadhaarVerification"
+          component={AadhaarVerification}
+          options={{
+            title: 'Aadhaar Verification',
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
+}
 
 export default App;
 
